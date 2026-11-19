@@ -1,0 +1,251 @@
+{
+  "info": {
+    "name": "Student Q2 Management API",
+    "description": "Postman collection for Q2 CO4 Student Profile and Skill Management Spring Boot project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": \"S104\",\n  \"studentName\": \"Neha Sharma\",\n  \"email\": \"neha@example.com\",\n  \"courseName\": \"B.Tech CSIT\",\n  \"programmingScore\": 82,\n  \"mathematicsScore\": 90,\n  \"technicalSkills\": [\n    \"Java\",\n    \"SQL\",\n    \"Python\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Student by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/id/S104",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "id",
+            "S104"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Student by Email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/email?email=neha@example.com",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "email"
+          ],
+          "query": [
+            {
+              "key": "email",
+              "value": "neha@example.com"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Students by Course",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/course?course=B.Tech",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "course"
+          ],
+          "query": [
+            {
+              "key": "course",
+              "value": "B.Tech"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate Merit List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/merit-list",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "merit-list"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Find Students with Shared Technical Skills",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/shared-skills",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "shared-skills"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Programming Needs Improvement and Maths >= 75",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/programming-needs-improvement",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "programming-needs-improvement"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Student",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentName\": \"Neha Sharma\",\n  \"email\": \"neha@example.com\",\n  \"courseName\": \"B.Tech CSIT\",\n  \"programmingScore\": 88,\n  \"mathematicsScore\": 90,\n  \"technicalSkills\": [\n    \"Java\",\n    \"SQL\",\n    \"Python\",\n    \"Spring Boot\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students/S104",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "S104"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Student",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/S104",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "S104"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Validation Test - Score Above 100 (Expected 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": \"S999\",\n  \"studentName\": \"Invalid Score Test\",\n  \"email\": \"invalid-score@example.com\",\n  \"courseName\": \"B.Tech CSIT\",\n  \"programmingScore\": 101,\n  \"mathematicsScore\": 75,\n  \"technicalSkills\": [\n    \"Java\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
